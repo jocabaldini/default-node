@@ -1,27 +1,39 @@
 {
-    "name": "node-project",
-    "version": "0.1.0",
-    "description": "NodeJS project with Express to be used as a starter.",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jocabaldini/default-node"
-    },
-    "keywords": [
-        "javascript",
-        "node",
-        "express"
-    ],
-    "author": "João Carlos de Souza Baldini",
-    "license": "",
-    "bugs": {
-        "url": "https://github.com/jocabaldini/default-node/issues"
-    },
-    "homepage": "https://github.com/jocabaldini/default-node#readme",
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "node-project",
+  "version": "0.1.0",
+  "description": "NodeJS project with Express to be used as a starter.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "npx eslint . --ext .js",
+    "lint-fix": "npx eslint . --ext .js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jocabaldini/default-node"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "express"
+  ],
+  "author": "João Carlos de Souza Baldini",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/jocabaldini/default-node/issues"
+  },
+  "homepage": "https://github.com/jocabaldini/default-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "prettier": "^2.2.1"
+  }
 }
