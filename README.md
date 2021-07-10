@@ -12,6 +12,7 @@ The DEV configuration was created following this [post](https://blog.theodo.com/
 
 ## Dependencies
 * Express
+* Dotenv
 
 ## Dev Dependencies
 * eslint 
@@ -22,3 +23,4 @@ The DEV configuration was created following this [post](https://blog.theodo.com/
 * eslint-plugin-prettier 
 * eslint-plugin-promise 
 * prettier
+* nodemon

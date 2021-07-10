@@ -38,9 +38,10 @@ module.exports = (dependencies) => ({
    */
   hasAvailableSpace: (product) => {
     // We are going to accept all students with life threatening conditions
-    const availableSpaces = dependencies.infrastructure.productRepository.getAvailableSpaces(
-      product.warehouse
-    )
+    const availableSpaces =
+      dependencies.infrastructure.productRepository.getAvailableSpaces(
+        product.warehouse
+      )
 
     return availableSpaces > 0
   },
