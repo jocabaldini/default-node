@@ -9,6 +9,7 @@ const dependencies = {
 dependencies.domain = require("../domain")(dependencies)
 
 module.exports = () => ({
+  dependencies: dependencies,
   createProduct: product(dependencies).createProduct,
   getProducts: product(dependencies).getProducts,
 })

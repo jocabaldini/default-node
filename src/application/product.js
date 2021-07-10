@@ -15,29 +15,30 @@ module.exports = (dependencies) => ({
    * @return {import('..').IAPIReturn} Process results.
    */
   createProduct: (product) => {
+    const apiStatusCodes = dependencies.helpers.getApiStatusCodes()
+    let statusCode = apiStatusCodes.UNPROCESSABLE_ENTITY
+
     const validProduct = dependencies.domain.validateProductCreation(product)
-    if (validProduct === false) {
-      return dependencies.helpers.makeReturn(400, {
-        message: "Product is not valid",
-      })
+    if (validProduct === true) {
+      if (dependencies.domain.hasAvailableSpace(product)) {
+        dependencies.infrastructure.productRepository.addProduct(product)
+        statusCode = apiStatusCodes.CREATED
+      } else {
+        statusCode.message = "No more available spaces in the warehouse"
+      }
     }
-    if (dependencies.domain.hasAvailableSpace(product)) {
-      dependencies.infrastructure.productRepository.addProduct(product)
-    } else {
-      return dependencies.helpers.makeReturn(400, {
-        message: "No more available spaces in the warehouse",
-      })
-    }
-    return dependencies.helpers.makeReturn(201, {
-      message: "Product was successfully created",
+
+    return dependencies.helpers.makeReturn(statusCode.status, {
+      message: statusCode.message,
     })
   },
   getProducts: (params) => {
     const products = dependencies.infrastructure.productRepository.getProducts(
       params.warehouse
     )
-    return dependencies.helpers.makeReturn(200, {
-      message: "Products was listed",
+    const apiStatusCodes = dependencies.helpers.getApiStatusCodes()
+    return dependencies.helpers.makeReturn(apiStatusCodes.OK.status, {
+      message: apiStatusCodes.OK.message,
       data: products,
     })
   },
