@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "NODE_ENV=dev nodemon index.js",
     "test": "NODE_ENV=test node index.js",
-    "lint": "npx eslint . --ext .js",
-    "lint-fix": "npx eslint . --ext .js --fix"
+    "lint": "eslint *.js .",
+    "lint-fix": "eslint --fix *.js ."
   },
   "repository": {
     "type": "git",
@@ -25,17 +26,18 @@
   },
   "homepage": "https://github.com/jocabaldini/default-node#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.3.1",
-    "prettier": "^2.2.1"
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2"
   }
 }
