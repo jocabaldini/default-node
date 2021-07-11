@@ -1,9 +1,19 @@
-var express = require('express')
-var app = express()
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', function(req, res) {
-  res.send('hello world')
+require("dotenv").config({
+  path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env",
 })
 
-app.listen(3000)
+const server = require("./server")
+const application = require("./src/application")
+const watchEndPoints = require("./watchEndPoints")
+
+const init = () => {
+  try {
+    server(application())
+    watchEndPoints.list()
+    console.log("Server started")
+  } catch (error) {
+    console.log(`Error while starting server: ${error}`)
+  }
+}
+
+init()
